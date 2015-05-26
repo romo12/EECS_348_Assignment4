@@ -1,0 +1,27 @@
+EECS 348 Assignment 4
+
+Performance using Frequencies and 10 fold crossvalidation:
+		Recall	 	Precision 	fmeasure
+bayes.py	0.7615		0.9038		0.8071
+bestbayes.py	0.8275		0.9026		0.8580
+
+
+The systems performed relatively well because they are based
+on the idea that some words are positive("great", "awesome",
+ "perfect") and these words are most likely to be found in positive
+reviews and the same holds true for negative words. Using this fact
+and the fundamental bayes theorem allows us to get a good prediction of
+whether a review is negative or positive given that we have a large 
+ammount of training data. Our bestbayes system improved this prediction 
+by making sure that any capitlization was ignored when training the system
+this improved the resulsts since "great" was treated the same as "GREAT" etc.
+The second improvement was that we added word stems to our features which allows
+for "Greatest" to be treated the same as "great" and also improves probabilities
+
+The system could be extended to account for a few things. The first most obvious 
+would be to add any number of n-grams but at least bigrams which would allow the
+system to recognize "not great" as a negative bigram. A second improvement would 
+be to weight words based on how much they contribute to the sentiment, this could 
+be done a few ways, you could have a dictionary of "sentiment words" and if words 
+are found in this dictionary they have a greater effect on the probability. You 
+could also base it on the part of speech (i.e adjectives weighed more). 
